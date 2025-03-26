@@ -28,7 +28,7 @@ public class RandomValues {
             city = getCityByState(state);
 
 
-    public final String getCityByState(String state) {
+    private String getCityByState(String state) {
         return switch (state) {
             case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
             case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
