@@ -3,43 +3,42 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import pages.components.ResultTableRegistrationPageComponent;
-
-import static utils.RandomValues.*;
+import utils.RandomValues;
 
 
 public class RegistrationTestsWithFaker extends TestBase {
-
+    RandomValues randomValues = new RandomValues();
 
     @Test
-    void RegistrationTest() {
+    void registrationTest() {
         RegistrationPage.openPage()
                 .removeBanner()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setUserNumber(phoneNumber)
-                .setEmailInput(email)
-                .setGender(gender)
-                .setDateOfBirth(dayOfBirth, monthOfBirth, yearOfBirth)
-                .setSubjects(subjects)
-                .setHobbies(hobbies)
-                .uploadFiles(uploadFile)
-                .setCurrentAddress(currentAddress)
-                .setState(state)
-                .setCity(city)
+                .setFirstName(randomValues.firstName)
+                .setLastName(randomValues.lastName)
+                .setUserNumber(randomValues.phoneNumber)
+                .setEmailInput(randomValues.email)
+                .setGender(randomValues.gender)
+                .setDateOfBirth(randomValues.dayOfBirth, randomValues.monthOfBirth, randomValues.yearOfBirth)
+                .setSubjects(randomValues.subjects)
+                .setHobbies(randomValues.hobbies)
+                .uploadFiles(randomValues.uploadFile)
+                .setCurrentAddress(randomValues.currentAddress)
+                .setState(randomValues.state)
+                .setCity(randomValues.city)
                 .clickSubmit();
 
 
         ResultTableRegistrationPageComponent resultTable = new ResultTableRegistrationPageComponent();
-        resultTable.resultTable("Student Name", lastName);
-        resultTable.resultTable("Student Email", email);
-        resultTable.resultTable("Gender", gender);
-        resultTable.resultTable("Mobile", phoneNumber);
-        resultTable.resultTable("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth);
-        resultTable.resultTable("Subjects", subjects);
-        resultTable.resultTable("Hobbies", hobbies);
-        resultTable.resultTable("Picture", uploadFile);
-        resultTable.resultTable("Address", currentAddress);
-        resultTable.resultTable("State and City", state + " " + city);
+        resultTable.resultTable("Student Name", randomValues.firstName + " " + randomValues.lastName);
+        resultTable.resultTable("Student Email", randomValues.email);
+        resultTable.resultTable("Gender", randomValues.gender);
+        resultTable.resultTable("Mobile", randomValues.phoneNumber);
+        resultTable.resultTable("Date of Birth", randomValues.dayOfBirth + " " + randomValues.monthOfBirth + "," + randomValues.yearOfBirth);
+        resultTable.resultTable("Subjects", randomValues.subjects);
+        resultTable.resultTable("Hobbies", randomValues.hobbies);
+        resultTable.resultTable("Picture", randomValues.uploadFile);
+        resultTable.resultTable("Address", randomValues.currentAddress);
+        resultTable.resultTable("State and City", randomValues.state + " " + randomValues.city);
     }
 
 }

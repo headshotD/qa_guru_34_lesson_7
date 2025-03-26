@@ -5,9 +5,9 @@ import com.github.javafaker.Faker;
 import java.util.Locale;
 
 public class RandomValues {
-    static Faker faker = new Faker(new Locale("eng"));
+    private final Faker faker = new Faker(new Locale("eng"));
 
-    public static String
+    public String
             firstName = faker.name().firstName(),
             lastName = faker.name().lastName(),
             email = faker.internet().emailAddress(),
@@ -28,7 +28,7 @@ public class RandomValues {
             city = getCityByState(state);
 
 
-    public static String getCityByState(String state) {
+    public final String getCityByState(String state) {
         return switch (state) {
             case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
             case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
