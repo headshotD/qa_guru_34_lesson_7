@@ -30,7 +30,7 @@ public class RegistrationTestsWithFaker extends TestBase {
 
 
         ResultTableRegistrationPageComponent resultTable = new ResultTableRegistrationPageComponent();
-        resultTable.resultTable("Student Name", lastName);
+        resultTable.resultTable("Student Name", firstName + " " + lastName);
         resultTable.resultTable("Student Email", email);
         resultTable.resultTable("Gender", gender);
         resultTable.resultTable("Mobile", phoneNumber);
