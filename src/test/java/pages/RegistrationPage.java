@@ -91,7 +91,7 @@ public class RegistrationPage {
 
     public RegistrationPage setState(String state) {
         stateInput.click();
-        $("#stateCity-wrapper").$(byText(state)).click();
+        $("#stateCity-wrapper").scrollTo().$(byText(state)).click();
         return this;
     }
 
