@@ -60,7 +60,7 @@ public class RegistrationRemoteTests {
         step("Open reg.form", () -> {
             open("/automation-practice-form");
             executeJavaScript("$('#fixedban').remove()");
-            executeJavaScript("$('footer').remove()");
+            executeJavaScript("$('#footer').remove()");
         });
         step("Fill form", () -> {
             $("#firstName").setValue("Oleg");
