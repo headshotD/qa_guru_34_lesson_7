@@ -9,8 +9,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import pages.RegistrationPage;
-import pages.components.ResultTableRegistrationPageComponent;
 import utils.RandomValues;
 
 import java.util.Map;
@@ -39,9 +37,15 @@ public class RegistrationRemoteTests {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
+    }
+
+    Attach attach = new Attach();
+
+    @BeforeAll
+    static void allure() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
-Attach attach = new Attach();
+
     @AfterEach
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
@@ -49,16 +53,16 @@ Attach attach = new Attach();
         Attach.browserConsoleLogs();
         Attach.addVideo();
     }
+
     @Tag("MyTest")
     @Test
     void registrationTest() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         step("Open reg.form", () -> {
             open("/automation-practice-form");
             executeJavaScript("$('#fixedban').remove()");
             executeJavaScript("$('footer').remove()");
         });
-        step ("Fill form", () -> {
+        step("Fill form", () -> {
             $("#firstName").setValue("Oleg");
             $("#lastName").setValue("Namozov");
             $("#userEmail").setValue("oleg@mail.ru");
