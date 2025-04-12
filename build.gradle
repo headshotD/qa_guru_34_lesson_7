@@ -50,3 +50,9 @@ task mytest (type: Test) {
         includeTags("MyTest")
     }
 }
+
+task POMWtihFaker (type: Test) {
+    useJUnitPlatform {
+        includeTags("POM with Faker")
+    }
+}

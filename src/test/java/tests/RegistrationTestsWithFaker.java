@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import pages.components.ResultTableRegistrationPageComponent;
@@ -8,7 +9,7 @@ import utils.RandomValues;
 
 public class RegistrationTestsWithFaker extends TestBase {
     RandomValues randomValues = new RandomValues();
-
+@Tag("POM with Faker")
     @Test
     void registrationTest() {
         RegistrationPage.openPage()
