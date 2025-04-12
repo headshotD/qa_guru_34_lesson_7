@@ -52,6 +52,7 @@ Attach attach = new Attach();
     @Tag("MyTest")
     @Test
     void registrationTest() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         step("Open reg.form", () -> {
             open("/automation-practice-form");
             executeJavaScript("$('#fixedban').remove()");
