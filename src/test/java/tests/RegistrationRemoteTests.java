@@ -76,7 +76,7 @@ public class RegistrationRemoteTests {
             $("#hobbiesWrapper").$(byText("Sports")).click();
             $("#uploadPicture").uploadFromClasspath("eda.tiff");
             $("#currentAddress").setValue("Some address 1");
-            $("#state").click();
+            $("#state").scrollTo().click();
             $("#stateCity-wrapper").$(byText("NCR")).click();
             $("#city").click();
             $("#stateCity-wrapper").$(byText("Delhi")).click();
