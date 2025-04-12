@@ -39,7 +39,6 @@ public class RegistrationRemoteTests {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 Attach attach = new Attach();
@@ -55,10 +54,10 @@ Attach attach = new Attach();
     void registrationTest() {
         step("Open reg.form", () -> {
             open("/automation-practice-form");
-        });
-        step ("Fill form", () -> {
             executeJavaScript("$('#fixedban').remove()");
             executeJavaScript("$('footer').remove()");
+        });
+        step ("Fill form", () -> {
             $("#firstName").setValue("Oleg");
             $("#lastName").setValue("Namozov");
             $("#userEmail").setValue("oleg@mail.ru");
