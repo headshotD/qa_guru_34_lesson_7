@@ -53,6 +53,6 @@ task mytest (type: Test) {
 
 task POMWtihFaker (type: Test) {
     useJUnitPlatform {
-        includeTags("POM with Faker")
+        includeTags("POMwithFaker")
     }
 }
