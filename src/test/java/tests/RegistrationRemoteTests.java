@@ -9,7 +9,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import utils.RandomValues;
 
 import java.util.Map;
 
@@ -22,14 +21,15 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 
 public class RegistrationRemoteTests {
-    RandomValues randomValues = new RandomValues();
 
     @BeforeAll
     static void beforeAll() {
         baseUrl = "https://demoqa.com";
-        //Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "127.0");
         Configuration.timeout = 5000;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.remote = System.getProperty("browserRemote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
@@ -37,22 +37,9 @@ public class RegistrationRemoteTests {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-    }
-
-    Attach attach = new Attach();
-
-    @BeforeAll
-    static void allure() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
-    }
 
     @Tag("MyTest")
     @Test
@@ -88,5 +75,13 @@ public class RegistrationRemoteTests {
             $(".table-responsive").shouldHave(text("Oleg"), text("Namozov"),
                     text("oleg@mail.ru"), text("7999111223"));
         });
+    }
+
+    @AfterEach
+    void addAttachments() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
     }
 }
