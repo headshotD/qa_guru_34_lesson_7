@@ -8,12 +8,15 @@ import static java.lang.String.format;
 
 public class SystemPropertiesTests {
 
+    @Tags({
+            @Tag("MyTest"),
+            @Tag("POMMithFaker"),
+    })
     @Test
-    void systemProperties3Test() {
-        System.setProperty("browser", "chrome");
-        String browser = System.getProperty("browser", "mozilla");
+    void browserSizeProperties() {
+        String browserSize = System.getProperty("browserSize", "1280x720");
 
-        System.out.println(browser); // chrome
+        System.out.println(browserSize); // chrome
     }
 
     @Test
@@ -21,7 +24,7 @@ public class SystemPropertiesTests {
             @Tag("MyTest"),
             @Tag("POMMithFaker"),
     })
-    void systemProperties4Test() {
+    void browserProperties() {
         String browser = System.getProperty("browser", "mozilla");
 
         System.out.println(browser);
@@ -32,22 +35,4 @@ public class SystemPropertiesTests {
         // opera
     }
 
-    @Test
-    @Tag("hello")
-    void systemProperties5Test() {
-        String name = System.getProperty("name", "default student");
-        String message = format("Hello, %s!", name);
-
-        System.out.println(message);
-        // gradle hello_test
-        // Hello, default student!
-
-        // gradle hello_test -Dname=Alex Egorov
-        // BUILD FAILED: Task 'Egorov' not found in root project 'demoqa-tests-19'.
-
-        // gradle hello_test -Dname="Alex Egorov"
-        // gradle hello_test "-Dname=Alex Egorov"
-        // Hello, Alex Egorov!
-
-    }
 }

@@ -33,6 +33,7 @@ dependencies {
 }
 
 tasks.withType(Test) {
+    useJUnitPlatform()
     systemProperties(System.getProperties())
 testLogging {
     lifecycle {
@@ -40,9 +41,6 @@ testLogging {
         exceptionFormat "short"
     }
 }
-}
-test {
-    useJUnitPlatform()
 }
 
 task mytest (type: Test) {
