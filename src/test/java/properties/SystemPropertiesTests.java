@@ -1,33 +1,12 @@
 package properties;
 
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import static java.lang.String.format;
 
 public class SystemPropertiesTests {
-
-    @Test
-    void systemPropertiesTest() {
-        String browser = System.getProperty("browser");
-
-        System.out.println(browser); // null
-    }
-
-    @Test
-    void systemProperties1Test() {
-        System.setProperty("browser", "chrome");
-        String browser = System.getProperty("browser");
-
-        System.out.println(browser); // chrome
-    }
-
-    @Test
-    void systemProperties2Test() {
-        String browser = System.getProperty("browser", "mozilla");
-
-        System.out.println(browser); // mozilla
-    }
 
     @Test
     void systemProperties3Test() {
@@ -38,7 +17,10 @@ public class SystemPropertiesTests {
     }
 
     @Test
-    @Tag("property")
+    @Tags({
+            @Tag("MyTest"),
+            @Tag("POMMithFaker"),
+    })
     void systemProperties4Test() {
         String browser = System.getProperty("browser", "mozilla");
 
