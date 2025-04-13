@@ -9,7 +9,7 @@ import utils.RandomValues;
 
 public class RegistrationTestsWithFaker extends TestBase {
     RandomValues randomValues = new RandomValues();
-@Tag("POMЦithFaker")
+@Tag("POMWithFaker")
     @Test
     void registrationTest() {
         RegistrationPage.openPage()
