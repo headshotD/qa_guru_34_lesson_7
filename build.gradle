@@ -9,7 +9,7 @@ repositories {
 
 allure {
     report {
-        version.set ("2.21.0")
+        version.set("2.21.0")
     }
     adapter {
         aspectjWeaver.set(true)
@@ -22,36 +22,39 @@ allure {
 }
 
 
-
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
-    testImplementation 'com.codeborne:selenide:6.19.1'
+    testImplementation 'com.codeborne:selenide:7.0.4'
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.15.0'
+    testImplementation 'org.seleniumhq.selenium:selenium-remote-driver:4.15.0'
     testImplementation 'io.qameta.allure:allure-selenide:2.21.0'
     testImplementation 'org.aspectj:aspectjweaver:1.9.23'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
     testImplementation 'org.slf4j:slf4j-simple:2.0.7'
-    testImplementation 'org.seleniumhq.selenium:selenium-remote-driver:4.19.1'
-}
 
+}
+test {
+    useJUnitPlatform()
+}
 tasks.withType(Test) {
     useJUnitPlatform()
     systemProperties(System.getProperties())
-testLogging {
-    lifecycle {
-        events "started", "skipped", "failed", "standard_error", "standard_out"
-        exceptionFormat "short"
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
     }
 }
-}
 
-task mytest (type: Test) {
+task mytest(type: Test) {
     useJUnitPlatform {
         includeTags("MyTest")
     }
 }
 
-task POMWtihFaker (type: Test) {
+task pomwtihfaker(type: Test) {
     useJUnitPlatform {
-        includeTags("POMwithFaker")
+        includeTags("POMWithFaker")
     }
 }
