@@ -11,9 +11,18 @@ public class SystemPropertiesTests {
             @Tag("POMMithFaker"),
     })
     @Test
+    void browserRemoteProperties() {
+        String browserRemote = System.getProperty("browserRemote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        System.out.println(browserRemote);
+    }
+    @Tags({
+            @Tag("MyTest"),
+            @Tag("POMMithFaker"),
+    })
+    @Test
     void browserSizeProperties() {
-        String browserSize = System.getProperty("browserSize", "1280x720");
-        System.out.println(browserSize); // chrome
+        String browserSize = System.getProperty("browserSize", "1920x1080");
+        System.out.println(browserSize);
     }
 
     @Test
@@ -22,7 +31,7 @@ public class SystemPropertiesTests {
             @Tag("POMMithFaker"),
     })
     void browserProperties() {
-        String browser = System.getProperty("browser", "mozilla");
+        String browser = System.getProperty("browser", "chrome");
         System.out.println(browser);
 
     }
