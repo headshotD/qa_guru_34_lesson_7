@@ -30,6 +30,7 @@ dependencies {
     testImplementation 'org.aspectj:aspectjweaver:1.9.23'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
     testImplementation 'org.slf4j:slf4j-simple:2.0.7'
+    testImplementation 'org.seleniumhq.selenium:selenium-remote-driver:4.19.1'
 }
 
 tasks.withType(Test) {

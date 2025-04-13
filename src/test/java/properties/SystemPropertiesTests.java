@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
+
 public class SystemPropertiesTests {
 
     @Tags({
@@ -13,7 +14,7 @@ public class SystemPropertiesTests {
     @Test
     void browserRemoteProperties() {
         String browserRemote = System.getProperty("browserRemote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-        System.out.println(browserRemote);
+        System.out.println("Remote browser URL: " + System.getProperty(browserRemote));
     }
     @Tags({
             @Tag("MyTest"),
