@@ -14,7 +14,7 @@ public class SystemPropertiesTests {
     @Test
     void browserRemoteProperties() {
         String browserRemote = System.getProperty("browserRemote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-        System.out.println("Remote browser URL: " + System.getProperty(browserRemote));
+        System.out.println("Remote browser URL: " + browserRemote);
     }
     @Tags({
             @Tag("MyTest"),
