@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
-import static java.lang.String.format;
-
 public class SystemPropertiesTests {
 
     @Tags({
@@ -15,7 +13,6 @@ public class SystemPropertiesTests {
     @Test
     void browserSizeProperties() {
         String browserSize = System.getProperty("browserSize", "1280x720");
-
         System.out.println(browserSize); // chrome
     }
 
@@ -26,13 +23,19 @@ public class SystemPropertiesTests {
     })
     void browserProperties() {
         String browser = System.getProperty("browser", "mozilla");
-
         System.out.println(browser);
-        // gradle property_test
-        // mozilla
 
-        // gradle property_test -Dbrowser=opera
-        // opera
+    }
+
+    @Test
+    @Tags({
+            @Tag("MyTest"),
+            @Tag("POMMithFaker"),
+    })
+    void browserVersionProperties() {
+        String browserVersion = System.getProperty("browserVersion", "127.0");
+        System.out.println(browserVersion);
+
     }
 
 }
