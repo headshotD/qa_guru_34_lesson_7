@@ -17,9 +17,11 @@ public class TestBaseRemote {
     static void browserConfiguration() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "127.0");
+        Configuration.timeout = 5000;
+        Configuration.remote = System.getProperty("browserRemote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
