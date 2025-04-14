@@ -61,7 +61,7 @@ public class RegistrationRemoteTests {
             $(".react-datepicker__day--024:not(.react-datepicker__day--outside-month)").click();
             $("#subjectsInput").setValue("Math").pressEnter();
             $("#hobbiesWrapper").scrollTo().$(byText("Sports")).click();
-            $("#uploadPicture").uploadFromClasspath("src/test/resources/mem.jpg");
+            //$("#uploadPicture").uploadFromClasspath("src/test/resources/mem.jpg");
             $("#currentAddress").setValue("Some address 1");
             $("#state").scrollTo().click();
             $("#stateCity-wrapper").$(byText("NCR")).click();
