@@ -15,7 +15,7 @@ import java.util.Map;
 public class TestBaseRemote {
     @BeforeAll
     static void browserConfiguration() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.browser = System.getProperty("browser", "chrome");
@@ -30,6 +30,7 @@ public class TestBaseRemote {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
     }
 
