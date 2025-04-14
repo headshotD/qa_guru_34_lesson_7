@@ -35,7 +35,7 @@ public class TestBaseRemote {
     }
 
     @AfterEach
-    void closeChromeWebDriver() {
+    void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
