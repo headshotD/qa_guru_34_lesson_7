@@ -90,8 +90,8 @@ public class RegistrationPage {
 
 
     public RegistrationPage setState(String state) {
-        stateInput.click();
-        $("#stateCity-wrapper").scrollTo().$(byText(state)).click();
+        stateInput.scrollTo().click();
+        $("#stateCity-wrapper").$(byText(state)).click();
         return this;
     }
 
