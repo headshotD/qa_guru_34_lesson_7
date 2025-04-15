@@ -23,7 +23,7 @@ public class RandomValues {
             yearOfBirth = String.valueOf(faker.number().numberBetween(1900, 2023)),
             subjects = faker.options().option("Arts", "English", "Maths", "Chemistry"),
             hobbies = faker.options().option("Sports", "Reading", "Music"),
-            uploadFile = faker.options().option("images/Kok.jpg"),
+            uploadFile = faker.options().option("eda.tiff"),
             state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan"),
             city = getCityByState(state);
 
