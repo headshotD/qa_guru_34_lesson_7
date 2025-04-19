@@ -1,0 +1,16 @@
+{
+  "base": {
+    "project": "MyTestProject",
+    "environment": "qa.guru",
+    "comment": "comment @Olejjka1337",
+    "reportLink": "https://jenkins.autotests.cloud/job/C34-Olejjka1337-unit11/90/",
+    "language": "en",
+    "allureFolder": "allure-report",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "7642158868:AAF9NZsRFIa-2ym3A6f5KSTyz7fBo76m4Ug",
+    "chat": "-1001600889078",
+    "replyTo": ""
+  }
+}
